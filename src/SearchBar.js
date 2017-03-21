@@ -4,11 +4,14 @@ import { Form, FormGroup, FormControl, ControlLabel, Button } from 'react-bootst
 class SearchBar extends Component {
   constructor(props) {
     super(props);
+    
     this.handleSearchTextInputChange = this.handleSearchTextInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(event) {
     event.preventDefault();
+    this.props.onSubmit(event.target.value);
   }
 
   handleSearchTextInputChange(event) {
