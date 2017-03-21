@@ -6,7 +6,7 @@ class RepoRow extends Component {
     return (
       <ListGroupItem header={this.props.repo.name} href={this.props.repo.html_url}>
         {this.props.repo.description}<br />
-        <span className="small">Updated {this.props.repo.lastUpdate} ago</span>
+        <span className="small">Updated {this.props.repo.lastUpdate} ago ({this.props.repo.pushed_at})</span>
       </ListGroupItem>
     );
   }

@@ -3,6 +3,16 @@ import { Grid, Row, Col, FormGroup, FormControl, ListGroup } from 'react-bootstr
 import RepoRow from './RepoRow';
 
 class RepoList extends Component {
+  constructor(props) {
+    super(props);
+
+    this.handleSortChange = this.handleSortChange.bind(this);
+  }
+
+  handleSortChange(event) {
+    this.props.onSortChange(event.target.value);
+  }
+
   render() {
     if (!this.props.repos) {
       return null;
@@ -17,16 +27,14 @@ class RepoList extends Component {
         <Row>
           <Col md={8}>Repositories</Col>
           <Col md={4}>
-            <FormGroup controlId="formControlsSelect">
-              <FormControl componentClass="select" placeholder="select">
-                <option value="select">Most recent first</option>
-                <option value="other">Oldest first</option>
+            <FormGroup>
+              <FormControl componentClass="select" placeholder="select" onChange={this.handleSortChange}>
+                <option value="desc">Most recent first</option>
+                <option value="asc">Oldest first</option>
               </FormControl>
             </FormGroup>
           </Col>
         </Row>
-
-        
 
         <p>Found {this.props.repos.length} repositories. Showing top {this.props.top}.</p>
         
