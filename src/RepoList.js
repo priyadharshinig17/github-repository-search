@@ -1,28 +1,39 @@
 import React, { Component } from 'react';
-import RepoListHeader from './RepoListHeader';
+import { Grid, Row, Col, FormGroup, FormControl, ListGroup } from 'react-bootstrap';
 import RepoRow from './RepoRow';
 
 class RepoList extends Component {
   render() {
+    if (!this.props.repos) {
+      return null;
+    }
+
     var rows = [];
     this.props.repos.forEach(function(repo) {
       rows.push(<RepoRow repo={repo} key={repo.name} />);
     });
     return (
-      <div>
-        <h4>Repositories</h4>
+      <Grid>
+        <Row>
+          <Col md={8}>Repositories</Col>
+          <Col md={4}>
+            <FormGroup controlId="formControlsSelect">
+              <FormControl componentClass="select" placeholder="select">
+                <option value="select">Most recent first</option>
+                <option value="other">Oldest first</option>
+              </FormControl>
+            </FormGroup>
+          </Col>
+        </Row>
 
-        <select>
-          <option>Most recent first</option>
-          <option>Oldest first</option>
-        </select>
+        
 
         <p>Found {this.props.repos.length} repositories. Showing top {this.props.top}.</p>
         
-        <div>
+        <ListGroup className="text-left">
           {rows}
-        </div>
-      </div>
+        </ListGroup>
+      </Grid>
     );
   }
 }

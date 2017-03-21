@@ -20,9 +20,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        <p className="App-intro">
-          <GitHubUserRepos repos={REPOS} top={10} />
-        </p>
+        <GitHubUserRepos repos={REPOS} top={10} />
       </div>
     );
   }
