@@ -3,6 +3,7 @@ import { shallow, mount } from 'enzyme';
 
 import RepoRow from './RepoRow';
 import { ListGroupItem } from 'react-bootstrap';
+import TimeAgo from 'react-timeago';
 
 describe('RepoRow', () => {
     var repo = {
@@ -36,6 +37,6 @@ describe('RepoRow', () => {
         const wrapper = mount(<RepoRow repo={repo} key={repo.name} />);
         const listGroupItem = wrapper.find(ListGroupItem).find('span.small');
 
-        expect(listGroupItem).toIncludeText('Updated xxx ago (2016-12-16T19:48:55Z)');
+        expect(listGroupItem).toContainReact(<TimeAgo date='2016-12-16T19:48:55Z' />);
     });
 });
