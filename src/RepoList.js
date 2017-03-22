@@ -15,7 +15,7 @@ class RepoList extends Component {
     });
     return (
       <div>
-        <RepoListHeader repos={this.props.repos} />
+        <RepoListHeader repos={this.props.repos} top={this.props.top} />
 
         <ListGroup className="text-left">
           {rows}

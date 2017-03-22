@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow, mount, render } from 'enzyme';
 
 import RepoList from './RepoList';
+import RepoListHeader from './RepoListHeader';
 import RepoRow from './RepoRow';
 
 describe('RepoList', () => {
@@ -36,6 +37,12 @@ describe('RepoList', () => {
 
         expect(wrapper.find(RepoRow).first()).toHaveProp('repo', repos[0]);
         expect(wrapper.find(RepoRow).last()).toHaveProp('repo', repos[1]);
+    });
+
+    it('contains the list header', () => {
+        const wrapper = shallow(<RepoList repos={repos} top={42} />);
+
+        expect(wrapper).toContainReact(<RepoListHeader repos={repos} top={42} />);
     });
 
 });
