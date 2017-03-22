@@ -36,7 +36,11 @@ class RepoList extends Component {
           </Col>
         </Row>
 
-        <p>Found {this.props.repos.length} repositories. Showing top {this.props.top}.</p>
+        <p>Found {this.props.repos.length} repositories.
+          {this.props.top && 
+            <span>{' '}Showing top {this.props.top}.</span>
+          }
+        </p>
         
         <ListGroup className="text-left">
           {rows}

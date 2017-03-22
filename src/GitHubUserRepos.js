@@ -13,8 +13,8 @@ class GitHubUserRepos extends Component {
     };
 
     this.handleSearchTextInput = this.handleSearchTextInput.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSortChange = this.handleSortChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSearchTextInput(searchText) {
