@@ -3,7 +3,6 @@ import { shallow, mount, render } from 'enzyme';
 
 import RepoList from './RepoList';
 import RepoRow from './RepoRow';
-import { Grid, Row, Col, FormGroup, FormControl, ListGroup } from 'react-bootstrap';
 
 describe('RepoList', () => {
     var repos = [
@@ -37,16 +36,6 @@ describe('RepoList', () => {
 
         expect(wrapper.find(RepoRow).first()).toHaveProp('repo', repos[0]);
         expect(wrapper.find(RepoRow).last()).toHaveProp('repo', repos[1]);
-    });
-
-    it('renders the number of repos found', () => {
-        const wrapper = shallow(<RepoList repos={repos} />);
-        expect(wrapper.find('p')).toHaveText('Found 2 repositories.');
-    });
-
-    it('renders the number of repos found with the value of "top" property, when provided', () => {
-        const wrapper = shallow(<RepoList repos={repos} top={3} />);
-        expect(wrapper.find('p')).toHaveText('Found 2 repositories. Showing top 3.');
     });
 
 });

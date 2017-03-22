@@ -11,7 +11,9 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>GitHub User Repositories</h2>
         </div>
-        <GitHubUserRepos top={10} />
+        <div className="container">
+          <GitHubUserRepos top={10} />
+        </div>
       </div>
     );
   }
