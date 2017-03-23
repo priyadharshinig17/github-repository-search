@@ -17,6 +17,21 @@ class GitHubUserRepos extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  getRepos(username){
+    return axios.get('https://api.github.com/users/' + username + '/repos', {
+        params: {
+          sort: 'pushed',
+          direction: this.state.sortDirection
+        }
+      });
+  }
+
+  updateRepos(response) {
+    this.setState({
+      repos: response.data
+    })
+  }
+
   handleSearchTextInput(searchText) {
     this.setState({
       searchText: searchText
@@ -24,23 +39,13 @@ class GitHubUserRepos extends Component {
   }
 
   handleSubmit() {
-    axios.get('https://api.github.com/users/' + this.state.searchText + '/repos', {
-        params: {
-          sort: 'pushed',
-          direction: this.state.sortDirection
-        }
-      })
-      .then(function (response) {
-        this.setState({
-          repos: response.data
-        })
-    }.bind(this));
+    this.getRepos(this.state.searchText).then(this.updateRepos.bind(this));
   }
 
   handleSortChange(direction) {
-    this.setState({
-      sortDirection: direction
-    });
+    this.setState({ sortDirection: direction }, () => {
+      this.getRepos(this.state.searchText).then(this.updateRepos.bind(this));      
+    });    
   }
 
   render() {
@@ -52,11 +57,12 @@ class GitHubUserRepos extends Component {
           onSearchTextInput={this.handleSearchTextInput}
           onSubmit={this.handleSubmit}
         />
+
+        <hr />
+        
         <RepoList 
           repos={this.state.repos}
           top={this.props.top}
-          searchText={this.state.searchText}
-          sortOrder={this.state.sortOrder}
           onSortChange={this.handleSortChange}
         />
       </div>

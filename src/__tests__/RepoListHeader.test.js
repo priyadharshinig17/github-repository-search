@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import RepoListHeader from './RepoListHeader';
+import RepoListHeader from '../RepoListHeader';
 
 describe('RepoListHeader', () => {
     var repos = [ "some-repository", "some-other-repository" ];

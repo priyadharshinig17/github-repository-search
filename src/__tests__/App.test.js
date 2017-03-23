@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import GitHubUserRepos from './GitHubUserRepos';
+import App from '../App';
 
 it('renders without crashing', () => {
-  shallow(<GitHubUserRepos />);
+  shallow(<App />);
 });

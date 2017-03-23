@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 
-import RepoRow from './RepoRow';
+import RepoRow from '../RepoRow';
 import { ListGroupItem } from 'react-bootstrap';
 import TimeAgo from 'react-timeago';
 

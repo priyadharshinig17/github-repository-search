@@ -1,9 +1,9 @@
 import React from 'react';
-import { shallow, mount, render } from 'enzyme';
+import { shallow } from 'enzyme';
 
-import RepoList from './RepoList';
-import RepoListHeader from './RepoListHeader';
-import RepoRow from './RepoRow';
+import RepoListHeader from '../RepoListHeader';
+import RepoList from '../RepoList';
+import RepoRow from '../RepoRow';
 
 describe('RepoList', () => {
     const repos = [
@@ -46,8 +46,11 @@ describe('RepoList', () => {
 
     it('contains the list header', () => {
         const wrapper = shallow(<RepoList repos={repos} top={42} />);
+        const repoListHeader = wrapper.find(RepoListHeader);
 
-        expect(wrapper).toContainReact(<RepoListHeader repos={repos} top={42} />);
+        expect(repoListHeader).toBeDefined();
+        expect(repoListHeader).toHaveProp('repos', repos);
+        expect(repoListHeader).toHaveProp('top', 42);
     });
 
 });
