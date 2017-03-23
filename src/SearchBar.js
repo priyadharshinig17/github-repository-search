@@ -22,7 +22,7 @@ class SearchBar extends Component {
     return (
         <Form inline onSubmit={this.handleSubmit} className="text-left container-fluid">
           <FormGroup controlId="formInlineName">
-            <ControlLabel>Github username</ControlLabel>
+            <ControlLabel>GitHub Username</ControlLabel>
             {' '}
             <FormControl type="text" placeholder="Enter username here" value={this.props.searchText} onChange={this.handleSearchTextInputChange} />
           </FormGroup>
