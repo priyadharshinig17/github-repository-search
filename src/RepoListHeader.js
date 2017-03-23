@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col, FormGroup, FormControl } from 'react-bootstrap';
+import { Grid, Row, Col, FormControl } from 'react-bootstrap';
 
 class RepoListHeader extends Component {
   constructor(props) {
@@ -18,19 +18,17 @@ class RepoListHeader extends Component {
     }
 
     return (
-        <Grid>
+        <Grid fluid>
           <Row>
             <Col md={8} className="text-left">
-              <h3>Repositories</h3>
+              <h4>Repositories</h4>
             </Col>
 
             <Col md={4}>
-              <FormGroup>
-                <FormControl componentClass="select" placeholder="select" onChange={this.handleSortChange}>
-                  <option value="desc">Most recent first</option>
-                  <option value="asc">Oldest first</option>
-                </FormControl>
-              </FormGroup>
+              <FormControl componentClass="select" placeholder="select" onChange={this.handleSortChange}>
+                <option value="desc">Most recent first</option>
+                <option value="asc">Oldest first</option>
+              </FormControl>
             </Col>
           </Row>
 

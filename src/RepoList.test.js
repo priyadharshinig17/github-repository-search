@@ -6,19 +6,9 @@ import RepoListHeader from './RepoListHeader';
 import RepoRow from './RepoRow';
 
 describe('RepoList', () => {
-    var repos = [
-        {
-            "name": "some-repository",
-            "html_url": "https://some-url.com",
-            "description": "Some description goes here.",
-            "pushed_at": "2016-12-16T19:48:55Z"
-        },
-        {
-            "name": "some-other-repository",
-            "html_url": "https://some-other-url.com",
-            "description": "Some other description goes here.",
-            "pushed_at": "2015-12-16T19:48:55Z"
-        },
+    const repos = [
+        { "name": "some-repository" },
+        { "name": "some-other-repository" }
     ];
 
     it('renders without crashing when list is empty', () => {
@@ -30,6 +20,21 @@ describe('RepoList', () => {
         const rows = wrapper.find(RepoRow);
 
         expect(rows.length).toBe(2);
+    });
+
+    it('renders only "top" rows', () => {
+        const aLotOfRepos = [
+            { "name": "repo 1" },
+            { "name": "repo 2" },
+            { "name": "repo 3" },
+            { "name": "repo 4" },
+            { "name": "repo 5" },
+            { "name": "repo 6" },
+        ];
+        const wrapper = shallow(<RepoList repos={aLotOfRepos} top={3} />);
+        const rows = wrapper.find(RepoRow);
+
+        expect(rows.length).toBe(3);
     });
 
     it('renders the rows properly', () => {

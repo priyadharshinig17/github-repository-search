@@ -20,7 +20,7 @@ class SearchBar extends Component {
 
   render() {
     return (
-        <Form inline onSubmit={this.handleSubmit} className="text-left">
+        <Form inline onSubmit={this.handleSubmit} className="text-left container-fluid">
           <FormGroup controlId="formInlineName">
             <ControlLabel>Github username</ControlLabel>
             {' '}
