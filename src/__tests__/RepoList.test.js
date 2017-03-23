@@ -51,6 +51,7 @@ describe('RepoList', () => {
         expect(repoListHeader).toBeDefined();
         expect(repoListHeader).toHaveProp('repos', repos);
         expect(repoListHeader).toHaveProp('top', 42);
+        expect(repoListHeader).toHaveProp('onSortChange');
     });
 
 });
