@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 
 import SearchBar from '../SearchBar';
-import { Button, ControlLabel, FormControl } from 'react-bootstrap';
+import { Form, Button, ControlLabel, FormControl } from 'react-bootstrap';
 
 describe('SearchBar', () => {
 
@@ -29,6 +29,14 @@ describe('SearchBar', () => {
         expect(formControl).toHaveProp('placeholder', 'Enter username here');
         expect(formControl).toHaveProp('type', 'text');
         expect(formControl).toHaveProp('value', 'someone');
+    });
+
+    it('calls onSubmit when form is submitted', () => {
+        const mockHandleSubmit = jest.fn();
+        const wrapper = shallow(<SearchBar searchText={'someone'} onSubmit={mockHandleSubmit} />);
+
+        wrapper.find(Form).simulate('submit', { preventDefault() {}, target: { value: "some-value" } });
+        expect(mockHandleSubmit).toHaveBeenCalledWith('some-value');
     });
 
 });
