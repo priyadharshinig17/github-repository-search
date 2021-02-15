@@ -20,7 +20,7 @@ class RepoList extends Component {
     }
 
     var rows = [];
-    this.props.repos.slice(0, this.props.top).forEach(function(repo) {
+    this.props.repos && this.props.repos.slice(0, this.props.top).forEach(function(repo) {
       rows.push(<RepoRow repo={repo} key={repo.name} />);
     });
     return (

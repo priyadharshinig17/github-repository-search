@@ -3,19 +3,19 @@
 }
 
 .App-logo {
-  height: 80px;
+  height: 50px;
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+  background-color:grey;
+  height: 100px;
+  padding: 15px;
   color: white;
 }
 
 @media (min-width: 768px) {
   .container {
-    max-width: 730px;
-    padding-top: 25px;
+    max-width: 600px;
+    padding-top: 20px;
   }
 }
